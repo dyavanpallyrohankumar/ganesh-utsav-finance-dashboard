@@ -49,7 +49,7 @@ Perfect for community associations, residential societies, and festival organizi
 
 ### 1️⃣ **Clone Repository**
 ```bash
-git clone https://github.com/your-username/ganesh-utsav-finance-dashboard.git
+git clone https://github.com/dyavanpallyrohankumar/ganesh-utsav-finance-dashboard.git
 cd ganesh-utsav-finance-dashboard
 ```
 
