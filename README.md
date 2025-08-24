@@ -1,7 +1,7 @@
 # 🪔 Roudra Sena Ganesh Utsav Finance Dashboard
 
 <div align="center">
-  <img src="./image.jpeg" alt="Ganesh Utsav Logo" width="200" height="200">
+  <img src="./images/logo.jpeg" alt="Ganesh Utsav Logo" width="200" height="200">
   <h3>🎉 Complete Finance Management System for Roudra Sena Ganesh Utsav Celebrations 🎉</h3>
   
   [![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-brightgreen)](https://your-username.github.io/ganesh-utsav-finance-dashboard/)
