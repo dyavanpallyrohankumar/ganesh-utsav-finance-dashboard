@@ -354,5 +354,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
   <h3>🌟 If this project helped your association, please give it a ⭐ star! 🌟</h3>
   <p>Made with ❤️ for Ganesh Utsav celebrations everywhere</p>
   
-  **🔗 [Live Demo](https://your-username.github.io/ganesh-utsav-finance-dashboard/) | 📊 [Google Form](https://forms.gle/QeyMFgjcJASSpsJ27) | 📋 [Documentation](./docs/)**
+  **🔗 [Live Demo](https://ganesh-utsav-finance-dashboard.vercel.app/) | 📊 [Google Form](https://forms.gle/QeyMFgjcJASSpsJ27) | 📋 [Documentation](./docs/)**
+
+<iframe src="https://ganesh-utsav-finance-dashboard.vercel.app/" height="600" width="100%" frameborder="0"></iframe>
 </div>
