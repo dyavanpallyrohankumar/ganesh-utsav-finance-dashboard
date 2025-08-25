@@ -87,25 +87,44 @@ async function loadData() {
             balanceElement.className = "card-value status-danger";
         }
 
-        // Mock transaction data (since not provided in CSV)
-        // const mockTransactions = [
-        //     { date: "15/08/2024", description: "Idol Purchase", amount: "₹15,000", category: "Decoration" },
-        //     { date: "16/08/2024", description: "Sound System", amount: "₹8,500", category: "Equipment" },
-        //     { date: "17/08/2024", description: "Member Contribution", amount: "₹5,000", category: "Donation" },
-        //     { date: "18/08/2024", description: "Prasad Materials", amount: "₹3,200", category: "Food" },
-        //     { date: "19/08/2024", description: "Decoration Items", amount: "₹4,800", category: "Decoration" }
-        // ];
+          // ✅ Transactions (find the "LAST 5 TRANSACTIONS:" row and parse below it)
+        const txStartIndex = rows.findIndex(r => r[0] && r[0].includes("LAST 5 TRANSACTIONS:"));
+        let transactions = [];
 
-        // Update transaction table
+        if (txStartIndex !== -1) {
+            for (let i = txStartIndex + 1; i < rows.length; i++) {
+                if (!rows[i][0]) break; // stop at empty row
+                const [date, description, amount, category] = rows[i];
+                if (date && description && amount) {
+                    transactions.push({ date, description, amount, category });
+                }
+            }
+        }
+
+        // ✅ Render transactions
         const tbody = document.getElementById("transactionTable");
-        tbody.innerHTML = mockTransactions.map(trans => `
-          <tr>
-            <td><i class="fas fa-calendar-day" style="margin-right: 0.5rem; color: var(--primary-orange);"></i>${trans.date}</td>
-            <td>${trans.description}</td>
-            <td><strong>${trans.amount}</strong></td>
-            <td><span style="background: var(--shadow-light); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem;">${trans.category}</span></td>
-          </tr>
-        `).join('');
+        if (transactions.length > 0) {
+            tbody.innerHTML = transactions.map(trans => `
+                <tr>
+                  <td><i class="fas fa-calendar-day" style="margin-right: 0.5rem; color: var(--primary-orange);"></i>${trans.date}</td>
+                  <td>${trans.description}</td>
+                  <td><strong>₹${trans.amount}</strong></td>
+                  <td>
+                    <span style="background: var(--shadow-light); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem;">
+                      ${trans.category || "General"}
+                    </span>
+                  </td>
+                </tr>
+            `).join('');
+        } else {
+            tbody.innerHTML = `
+              <tr>
+                <td colspan="4" style="text-align: center; padding: 2rem; color: var(--text-light);">
+                  No transactions found
+                </td>
+              </tr>
+            `;
+        }
 
         // Stop loading animation
         setTimeout(() => {
